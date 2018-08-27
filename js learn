@@ -1,0 +1,342 @@
+var Obj=Object();
+var obj=Object(undefined);
+var obj=Object(null);
+obj instanceof Object//验证obj是否为Objcet的实例
+var obj=Object(1);
+obj instanceof  Object;
+obj instanceof Number;
+var obj=Object("k");
+obj instanceof Object;
+obj instanceof String;
+var obj=Object(false);
+obj instanceof Object;
+obj instanceof Boolean;
+var arr=[];
+var obj=Object(arr);
+obj===arr;
+var value={};
+var obj=Object(value);
+obj===value;
+var fn= function(){};
+var obj=Object(fn);
+obj===fn;
+//参数是对象，就直接返回原对象。
+function isobject(obj){
+ return obj===Object(obj);
+}
+isobject([]);
+
+//构造函数
+var obj=new Object();
+
+var o1={a:1};
+var o2=new Object(o1);
+o1===o2;
+
+//objectde静态方法
+//1.Object.keys(foo)
+var obj={
+    p1:123,
+    p2:456
+};
+ Object.keys(obj);//返回一个数组.string
+//2.Object.getOwnPropertyNames(foo)
+ Object.getOwnPropertyNames(obj);//可返回不可枚举type
+ var a=["foo1","foo2"];
+ Object.keys(a);
+ Object.getOwnPropertyNames(a); // 多一个  length属性
+ //3.
+ Object.getOwnPropertyDescriptor();
+ Object.defineProperty()
+ Object.defineProperties()
+ //4.
+ Object.preventExtensions()
+ Object.isExtensible()
+
+ Object.seal()
+ Object.isSealed()
+
+ Object.freeze()
+ Object.isFrozen()
+
+ //6/
+ Object.create()
+ Object.setPrototypeOf()
+
+
+ //1.Object.proptotype
+ //1.1
+ Object.prototype.valueOf();
+ Object.prototype.toString();
+ Object.prototype.toLocationString();
+ Object.prototype.hasOwnProperty();
+ Object.prototype.isPrototypeOf();
+ Object.prototype.propertyIsEnumerable();
+//eg.
+var obj=new Object();
+obj.valueof()===obj;
+//Object.prototype.toString();
+var obj =new Object;
+obj.tostring=function(){
+    return "hello me ";
+};
+obj+""+"!";//"hello me !"
+//属性描述Duix 
+value 
+Writable
+Enumerable
+configurable
+get
+set
+//获取自身属性，继承的属性不能获得
+Object.getOwnPropertyDescriptor()
+var obj={p : "a"};
+Object.getOwnPropertyDescriptor(obj,"p");
+//返回属性name
+var obj=Object.defineProperties({},{
+    p1:{value:1,enumerable:true},
+    p2:{value:2,enumerable:false}
+});
+Object.getOwnPropertyNames(obj);//["p1","p2"]
+//
+Object.defineProperty(object,propertyName,attributesObject)
+var obj=Object.defineProperties({},{
+    p1:{value:123,enumerable:true},
+    p2:{value:abc,enumerable:true},
+    p3:{get: function(){
+        return this.p1+this.p2},
+    enumerable:true,
+    configurable:true}
+});//get  不可写+不能有value
+//for in 
+Object.keys()
+JSON.stringify()
+var obj=Object.defineProperty({},"p",{
+    value:1,
+    weitable:false,
+    enumerable:false,
+    configurable:false
+});
+Object.defineProperty(obj,"p",{value:2})
+Object.defineProperty(obj,"p",{writable:true})
+Object.defineProperty(obj,"p",{enumerable:true})
+Object.defineProperty(obj,"p",{configurable:true})
+//writable 可以从true变为false
+//writable or configurable 一个为true value即可以改变
+
+var extend=function(to ,from ){
+    for (var property in form){
+        to[property]=from[property];
+    }
+    return to;
+}
+extend({},{a :1})
+
+var obj =new Object();
+Object.preventExtensions(obj);
+Object.defineProperty(obj,"p",{
+    value:"hello"
+});
+obj.p=1;
+
+var obj=new Object();
+Object,isExtensible(obj)
+Object.preventExtensions(obj);
+Object.isExtensible(obj);
+
+var obj={p:"hello"};
+Object.seal(obj);//不能删除或增加属性 但是可以修改
+
+delete obj.p;
+obj.p
+
+obj.x="world";
+obj.x;
+var obj ={p:"a"};
+Object.seal(obj);
+Object.isSealed(obj);
+
+var obj={p :"a"};
+Object.freezy(obj);
+
+Object.isFrozen(obj);
+
+//proto 可以改变//冻结 原型//只是指向被冻结但是对象本身的内容可以改变 比如 数组
+
+
+//ajax
+XMLHttpRequest.OPENED("GET","ajax.txt",true);
+XMLHttpRequest.send();
+XMLHttpRequest.OPENED("post","/try/ajax/demo_post2.php",true);
+XMLHttp.setRequestHeader("content-type"."application/x-www-form-urlencoded");
+xmlhttp.send("fname=Henry&inname=Ford");
+
+
+
+setRequestHeader(Headers,value)
+
+/*<!DOCTYPE html>
+<html>
+    <head>
+        <meat charset="utf-8">
+    <script language="javascript">
+    function loadXMLDoc(){
+        var xmlHttp;
+        if (window.XMLHttpRequest)
+        {
+            xmlHttp=new XMLHttpRequset();
+        }else{
+            xmlHttp=new ActiveXObject("Microsoft.XTMLHTTP");
+        }
+        XMLHTTP.ONREADYSTATECHANGE=FUNCTION(){
+        IF (XMLHTTP.READYSTATE==4&&XMLHTTP.STATUS==200)
+        {
+            DOCUMENT.getElementById("myDiv").innerHtml=xmlhtto.responseText;
+        }
+        }
+        xmlhttp.open("GET","/try/ajax/ajax_info.tex",true);
+        xmlhttp.send();
+    }
+    </script>
+    </head>
+    <body>
+        <div id ="myDiv"><h2>使用ajax修改该文本内容</h2></div>
+        <button type="button" onclick="loadXMLDoc()">修改内容</button>
+        </body>
+    </html>
+*/
+var arr=new Array(2);
+arr.length;//2
+arr;
+var arr= Array(2);
+new Array();//;[]
+new Array["abc"]
+new Array([1]);
+new Array("1","2");//不好用   
+var b=[undefined,undefined,undefined];
+
+typeof arr;
+Array.isArray(arr);
+//valueof() toString()
+var arr=[1,2,3]
+arr.valueof();//返回数组 所有值
+arr.toString();
+arr.push();
+arr.pop();
+[].pop();//返回undefined
+arr.shift();
+
+var list=[1,2,3,4,5,6]
+var item;
+while (item =list.shift()){
+    console.log(item);
+}
+list;//[]
+a.unshift("a");// return a.length
+a.join();//以指定参数作为分隔符
+arr1.concat(arr2);
+arr.reverse;
+arr.slice();
+arr.slice(0);
+arr.slice(1,2);
+arr.slice(-1);
+arr.splice();//（删除位置 删除个数 插入）；一分为二
+arr.sort();
+arr.sort(function(e1,e2){
+    return e1-e2;
+})//大的放后面
+var num=[1,2,3];
+SVGAnimatedNumberList.map(function(n){
+    return n+1;
+});
+//不改变原数组
+arr.map(function (elem,index,arr){
+    return elem*index;
+})
+
+//*
+var arr=["a","b","c"];
+[1,2].map(function(e){
+    return this[e];
+},arr);//["b","c"] 函数作为参数
+//forEach 同理
+function log(element,idex,array){
+    console.log("["+index+"]="+element);
+}
+[2,5,9].forEach(log);
+var out =[];
+[1,2,3].forEach(function(elem){
+    this.push(elem*elem);
+},out);
+out;//[2,4,9]
+//与 map 相同  识别undefined 与 null  跳过空位
+
+//
+var arr=[1,2,3,4,5,6];
+arr.some(function (elem,index,arr){
+    return elem>=3;
+});
+arr.every(function(elem,index,arr){
+    return elem>=3;
+});
+
+arr.reduce(function(a,b){
+    console.log(a,b);
+    return a+b;
+})
+
+var a=["a","b","c"];
+a.indexOf("b");
+a.indexOf("b",1);
+//===比较
+
+
+//Number() String() Boolean()   //这三个对象作为构造函数 可以将原始类型值变为对象、
+//作为普通函数 ，将任意类型的值变为原始类型的值   new
+"abc".length//自动调用
+
+String.prototype.double=function(){
+    return this.valueOf()+this.valueOf();
+};
+Number.prototype.double=function(){
+    return this.valueOf()+this.valueOf();
+};
+//Boolean
+var b=new Boolean(true);
+typeof b;//"Object"
+
+if (new Boolean(false)){
+    console.log("true");
+}//true
+if (new Boolean(false).valueof()){
+    console.log("true");
+}//if 判断 true  or false 来进行是否继
+Boolean(1);Boolean("false");Boolean([]);Boolean({});
+Boolean(function(){});Boolean(/foo/);//true
+Boolean(undefined);Boolean(null);Boolean(0);Boolean("");Boolean(NaN);//FALSE
+!!1//TRUE
+//不加 new生成对象的话 有可能无法通过if判断
+
+
+//Number对象 为数值对应的包装对象，可以作为构造函数使用，也可以作为工具函数使用
+var n= new Number(1);
+Number.POSITIVE_INFINITY
+Number.POSITIVE_INFINITY
+Number.NaN
+Number.MIN_VALUE
+Number.MAX_SAFE_INTEGER
+Number.MIN_SAFE_INTEGER//静态方法
+
+Number.prototype.toString()
+parseInt();
+
+Number.prototype.toFixed();
+//转化为指定位数的小数，然后返回这个小数对应的字符串
+Number.prototype.toExponential();
+//科学计数法
+Number.prototype.toPrecision();
+//指定位数的有效数字   四舍五入不准确
+Number.prototype.add=function(x){
+    return this+x;
+};
+9["add"](3);//12
