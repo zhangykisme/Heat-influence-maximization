@@ -1,0 +1,54 @@
+//String 对象
+var s1="abc";
+var s2=new String("abc");
+
+typeof s1;
+typeof s2;
+s2.valueof();
+
+new String("abc");
+(new String("abc"))[1];
+
+
+String(true);//"true"
+String(5);//"5"
+
+//静态方法
+String.fromCharCode()
+String.fromCharCode(97);//"a"
+
+String.prototype.length;
+//arr.length;
+
+String.prototype.charAt();
+var s = new String("abc");
+s.charAt(1);
+s.charAt(s.length-1);
+String.protitype.charCodeAt();
+
+s1.concat(s2);//返回一个新的数组、
+
+"javascript".slice(0,4);//java
+"javascript".slice(4);
+"javascript".slice(-2);
+"javascript".slice(-2,-1);//前面取，后括号不取
+String.prototype.substring();
+"javascript".substring(0,4);
+"hello world".indexOf("o",6);
+"hello world".indexOf("o");//4
+"hello world".lastIndexOf("o",6);//表示从 序号为6 的前面开始匹配
+String.prototype.trim();
+"hello world".trim();//去除空格 \t \v \n \r
+"hello world".toLowerCase();//圈小写
+"hello world".toUpperCase();//全大写
+String.prototype.match();//匹配字符串并返回一个数组else return null；
+String.ptototype.search("at");//返回匹配“at”的第一个位置，else return -1；
+"AAA".replace("a","c");
+
+"a|b|c".split("|");//["a","b","c"]
+"a|b|c".split();//["a|b|c"]
+"a|b|c".split("|",1)//["a"]
+
+String.prototype.localeCompare();
+"B">"a"
+"B".localeCompare("a");1
