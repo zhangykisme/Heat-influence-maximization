@@ -1,0 +1,67 @@
+JSON
+//数组 or 对象 //字符串，数值（10）,布尔，null 四种原始值//""
+  JSON.stringify('foo')==="\"foo\""
+  //数组 转化为null  对象转化为{}  undefined function  xml对象  忽略不可遍历属性
+  JSON.stringify(obj,selectedproperties);//shuzuwuxiao
+//3
+JSON.stringify({p1:2,p2:3},null,2);//  添加在p1 p2 前面空格or字符 2 or "|"
+var user={
+    firstName:"三",
+    lastName:"张",
+    get fullName(){
+        return this.lastName+this.firstName;
+    },
+    toJSON:function(){
+        return{
+            name:this.lastName+this.firstName
+        };
+   }};
+   JSON.stringify(user);
+
+
+JSON.parse();//字符串变换成值
+JSON.parse("{}")//{}
+JSON.parse("true")//true
+var  o=JSON.parse('{"name":"张三"}');
+o.name;//张三
+try{
+    JSON.parse("'string'");
+}catch(e){
+    console.log('parsing error');
+}
+
+function f(key,value){
+    if (key==="a"){
+        return value+10;
+    }
+    return value;
+}
+JSON.parse('{"a":1,"b":2}',f);
+
+//面向对象
+//不加new  就会出错   变为全局    可以加 严格模式 use strict  or  写如下
+function  Fubar(foo,bar){
+    if (!(this instanceof Fuber)){
+        return new Fuber(foo,bar);
+    }
+    this._foo=foo;
+    this._bar=bar;
+}
+Fubar(1,2)._foo;
+(new Fuber(1,2))._foo;
+
+var Vehicle=function(){
+    this.price=1000;
+    return 1000;
+};
+(new Vehicle())===1000;//F   返回数值时，NEW会忽略它
+var Vehicle=function(){
+    this.price=1000;
+    return {price:2000};
+}
+(new Vehicle()).price;//2000
+//new  返回对象
+new .target          //用new 调用的话。new.target指向当前函数   否则 undefined
+
+
+//this关键字 太多 ..
