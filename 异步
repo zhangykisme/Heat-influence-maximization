@@ -1,0 +1,93 @@
+//
+console.log(1);
+setTimeout("console.log(2)",10000);//注意字符串形式！！！
+console.log(3);
+
+
+function f(){
+    console.log(2);
+}
+
+setTimeout(f,1000);//直接调用
+
+setTimeout(function(a,b){
+    console.log(a+b);
+},1000,1,1);//1,1为回调函数参数
+
+var x=1;
+var obj={
+    x:2;
+    y:function(){
+        console.log(this.x);
+    }
+};
+
+setTimeout(function(){
+    obj.y();
+},1000);
+setTimeout(obj.y.bind(obj),1000);
+
+//setInterval()
+var i=1;
+var timer=setInterval(function(){
+    console.log(2);
+},1000);
+
+//一个例子
+var div=document.getElementById("someDiv");
+var opacity=1;
+var fader=setInterval(function(){
+    opacity-=0.1;
+    if(opacity>=0){
+        div.style.opacity=opacity;
+    }else{
+        clearInterval(fader);
+    }
+},100);
+
+var hash=window.location.hash;
+var hashWacher=setInterval(function(){
+    if(window.location.hash !=hash){
+        updatePage();
+    }
+},1000)
+
+//setInterval 时间间隔是开始时计算 无论其执行耗费多久
+//而setTimeout是下一次执行的时间
+var i1;
+var timer=setTimeout(function f(){
+timer=setTimeout(f,2000);    
+}, 2000);
+
+//quxiao
+var id=setTimeout(f,1000);
+var idd=setInterval(f,1000);
+clearTimeout(id);
+clearInterval(idd);
+
+(function(){
+    var callid=setInterval(clearAlltimeouts,0);
+    function clearAllTimeouts(){
+        var id=settimeout(function(){},0);
+        while(id >0){
+            if(id!==callid){
+                clearTimeout(id);
+            }
+            id--;
+        }
+    }
+})();
+
+$("textarea").on("keydown",debounce(ajaxAction,2500));
+
+function debounce(fn,delay){
+    var timer=null;
+    return function(){
+        var context=this;
+        var args=arguments;
+        clearTimeout(timer);
+        timer=settimeout(function(){
+            fn.apply(context,args);
+        },delay);
+    };
+}
