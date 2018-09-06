@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>    
+@font-face{
+font-family:myfirstfont;
+src:url('/example/css3/Sansation_Light.ttf')
+}
+.font1{
+    font-family:myFirstFont;
+}
+</style>
+</head>
+<body>
+<div class="font1">
+    你看我的字体可以变化么
+</div>
+
+<style>
+.t2{
+    margin:30px;
+    width:30px;
+    height:100px;
+    background-color:yellow;
+    transform:rotate(9deg);
+}
+</style>
+<div class="t2">
+    hi2
+    </div>
+<div class="t3">
+    hi3
+    </div>
+    <div class="t4">
+    hi4
+    </div>
+<style>
+.t3{
+    width:30px;
+    height:100px;
+    border:1px red solid;
+    transform:translate(500px,100px);
+
+}
+.t4{
+    width: 30px;
+    height:40px;
+    border-radius:20px;
+    background:red;
+    transform:rotate(30deg);
+}
+    </style>
+
+
+
+</body>
+</html>
+
+
+选择器
+框模型
+背景和边框
+文本效果
+2的3的转换
+动画
+多列布局
+用户界面
+
+
+
+
+
+border-radis
+box-shadow
+border-image
+
+
+background-size
+background-origin
+background-clip
+
+
+
+text-shadow
+word-wrap
+
+
+hanging-punctuation
+punctuation-trim
+text-align-last
+
+text-emphasos
+text-justify
+text-outline
+text-overflow
+
+
+
+
+
+
+
+
+
+
+
+
