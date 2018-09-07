@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>    
+@font-face{
+font-family:myfirstfont;
+src:url('/example/css3/Sansation_Light.ttf')
+}
+.font1{
+    font-family:myFirstFont;
+}
+</style>
+</head>
+<body>
+<div class="font1">
+    你看我的字体可以变化么
+</div>
+
+<style>
+.t2{
+    margin:30px;
+    width:30px;
+    height:100px;
+    background-color:yellow;
+    transform:rotate(9deg);
+}
+</style>
+<div class="t2">
+    hi2
+    </div>
+<div class="t3">
+    hi3
+    </div>
+    <div class="t4">
+    hi4
+    </div>
+<style>
+.t3{
+    width:30px;
+    height:100px;
+    border:1px red solid;
+    transform:translate(500px,100px);
+
+}
+.t4{
+    width: 30px;
+    height:40px;
+    border-radius:20px;
+    background:red;
+    transform:rotate(30deg);
+}
+    </style>
+
+
+
+</body>
+</html>
+
+
+选择器
+框模型
+背景和边框
+文本效果
+2的3的转换
+动画
+多列布局
+用户界面
+
+
+
+
+
+border-radis
+box-shadow
+border-image
+
+
+background-size
+background-origin
+background-clip
+
+
+
+text-shadow
+word-wrap
+
+
+hanging-punctuation
+punctuation-trim
+text-align-last
+
+text-emphasos
+text-justify
+text-outline
+text-overflow
+
+
+html5
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>    
+@font-face{
+font-family:myfirstfont;
+src:url('/example/css3/Sansation_Light.ttf')
+}
+.font1{
+    font-family:myFirstFont;
+}
+</style>
+</head>
+<body>
+<div class="font1">
+    你看我的字体可以变化么
+</div>
+
+<style>
+.t2{
+    margin:30px;
+    width:30px;
+    height:100px;
+    background-color:yellow;
+    transform:rotate(9deg);
+}
+</style>
+<div class="t2">
+    hi2
+    </div>
+<div class="t3">
+    hi3
+    </div>
+    <div class="t4">
+    hi4
+    </div>
+
+
+<style>
+.t3{
+    width:30px;
+    height:100px;
+    border:1px red solid;
+    transform:translate(500px,100px);
+
+}
+.t4{
+    width: 30px;
+    height:40px;
+    border-radius:20px;
+    background:red;
+    transform:rotate(30deg);
+}
+.t5{
+    animation: my 5s;
+    width: 30px;
+    height:40px;
+    border-radius:20px;
+    background:red;
+}
+@keyframes my{
+    from {background:red;}
+     to{background:yellow;}
+}
+@keyframes my1{
+    from {background:blue; left:0px; top:0px;}
+    to {background:yellow; left:100px;  top:200px;}
+}
+.t6{
+    animation: my1 5s;
+    animation-iteration-count: 3;
+    width:20px;
+    height:30px;
+    border-radius:10px 10px;
+    position: absolute;
+}
+    </style>
+<div class="t5">
+        hi5
+    </div>
+<div class="t6">
+t6    
+</div>
+
+<!--<canvas id="mycanvas" width="400" height="300"></canvas>
+<script type="text/javascript">
+    var c=document.getElementById("mycanvas");
+    var cxt=c.getContext("2d");
+    cxt.fillstyle="#FF0000";
+    cxt.fillRect(10,0,50,715);
+</script>-->
+
+
+
+</body>
+</html>
+<!--<!DOCTYPE HTML>
+<html>
+    <body>
+    <audio controls="controls">
+        <sourse src="/i/song.ogg" type="audio/ogg">
+            <sourse src="/i/song.mp3" type="audio/mpeg">
+            your brower does not support the audio element.
+            </audio>
+            </body>
+            </html>-->
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <style type="text/css">
+        body
+        {
+            font-size:70%;
+            font-family:'Courier New', Courier, monospace;
+        } 
+</style>
+
+<script type="text/javascript">
+    function  cavs_getCoodinates(e){
+        x=e.clientX;
+        y=e.clientY;
+        document.getElementById("xycoor").innerHTML="zzz:("+x+","+y+")";
+    }
+function cleard(){
+    document.getElementById("xycoor").innerHTML="";
+}
+
+</script>
+</head>
+<body  style="margin:0px;">
+     <span>zuobiao</span>
+    <div id="coordiv" style="float:left;width:599px;height:200px; border:1px red  solid;"
+      onmousemove="cnvs_getCoodinates(event)" onmouseout="cleard()"></div>                                         
+
+<br/>
+<br/>
+<div id="xycoor"></div>
+    </body>
+
+
+
+
+
+
+
+
