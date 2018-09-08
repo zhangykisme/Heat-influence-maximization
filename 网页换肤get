@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="red.css" />
+	<script>
+		window.onload = function(){
+            var link = document.getElementsByTagName("link")[0];
+            console.log(2);
+			var skin = document.getElementById("skin").childNodes;
+			for( var i =0; i<=skin.length; i++ ){
+				skin[i].onclick = function(){
+					for( var a in skin ){
+						skin[a].className = "";
+					}
+					this.className = "current";
+					link['href'] = this.id+".css";
+				}
+			}
+		}
+	</script>
