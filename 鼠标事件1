@@ -1,0 +1,105 @@
+MouseEvent
+var event=new MouseEvent(type,options);
+var event=new MouseEvent(type,screenX);
+var event=new MouseEvent(type,screenY);
+var event=new MouseEvent(type,clientX);
+var event=new MouseEvent(type,clientY);//相对于程序窗口
+var event=new MouseEvent(type,ctrlKey);
+var event=new MouseEvent(type,altkey);
+var event=new MouseEvent(type,metaKey);
+var event=new MouseEvent(type,button);//0 left 1 mid 2 right
+var event=new MouseEvent(type,buttons);
+var event=new MouseEvent(type,relatedTarget);//mouseenter mouseover mouseout mouseleave
+//生成鼠标事件 并触发
+function simulateclick(){
+    var event=new MouseEvent('click',{
+        'buttles':true,
+        'cancelable':true
+    });
+    var cb=document.getElementById('checkbox');
+    cb.dispatchEvent(event);
+}
+MouseEvent.altkey
+MouseEvent.ctrlKey
+MouseEvent.metaKey
+MouseEvent.shiftKey
+function showkey(e){
+    console.log('ALT key pressed:'+e.altkey);
+    console.log('CTRL key pressed:'+e.ctrlkey);
+    console.log('META key pressed:'+ e.metakey);
+    console.log("SHIFT key pressed:"+ e.shiftkey);
+}
+var whichButton=function(e){
+    switch(e.button){
+        case 0:
+        console.log('Left button clicked.');
+        break;
+        case 1:
+        console.log('Middle button click.');
+        break;
+        console.log('right button clicked');
+        break;
+        case 2:
+        console.log('d');
+        break;
+        default:
+        console.log('Unexpected code:'+e.button);
+        }
+}
+
+function showCoords(evt){
+    console.log(
+        'clientX value'+ evt.clientX+'\n'+
+        'clientY value'+ evt.clientY+'\n'
+    );
+}//mouseEvent.x MouseEvent.y
+
+MouseEvent.movementX//
+currentEvent.movementX=currentEvent.screenX-previousEvent.screenX;
+currentEvent.movementY=currentEvent.screenY-previousEvent.screenY;
+
+MouseEvent.screenX;
+MouseEvent.screenY;
+var p=document.querySelector('p');
+p.addEventListener(
+    'click',
+    function(e){
+        console.log(e.offsetX);
+        console.log(e.offsetY);
+    },
+    false
+);// 包含padding
+dicument.body.addEventListener(
+    'click',
+    function(e){
+        console.log(e.pageX);
+        console.log(e.pageY);
+    },
+    false
+);//鼠标位置距离文档 左  上
+focusin
+focusout
+mouseenter
+mouseleave
+mouseout
+mouseover
+dragenter
+dragexit
+var inner=document.getElementById('inner');
+inner.addEventListener('mouseover',function(event){
+    console.log('ff'+event.target.id+event.relatedTarget.id);
+}.false);
+inner.addEventListener('mouseenter',function(event){
+    console.log('ff'+event.target.id+"out"+event.relatedTarget.id);
+});
+inner.addEventListener('mouseout',function(){
+    console.log('out'+event.target.id+'in'+eventrelatedTarget.id);
+});
+inner.addEventListener('mouseleave',function(event){
+    console.log('out'+event.target.id+'in'+event.relatedTarget.id);
+});
+
+MouseEvent.getModifierState
+document.addEventListener('click',function(e){
+    console.log(e.getModifierState('CapsLock'));
+},false);
